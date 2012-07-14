@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # A simple Script for installing Rails on Ubuntu 12.04 LTS
 # It will also install the dependencies required as well as the RVM
 # Author: Ramesh Jha (rameshjha420@gmail.com),(http://blog.sudobits.com)
