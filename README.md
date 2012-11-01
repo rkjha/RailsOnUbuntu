@@ -1,7 +1,7 @@
 RailsonUbuntu
 =============
 
-Some useful goodies for *Ruby on Rails* developers, who uses Ubuntu!
+Some useful goodies for *Ruby on Rails* developers using Ubuntu!
 
 ### 1 Rails Installer
 
