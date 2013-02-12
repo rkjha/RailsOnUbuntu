@@ -70,9 +70,9 @@ echo "..........Installing Rails gem................"
 gem install rails >>$LOG_FILE
 echo ".........Done"
 
+
 echo "######################################"
 echo "###### Installation Completed ########"
 echo "######################################"
 
 echo "if something went wrong then checkout the log file $LOG_FILE"
-
