@@ -9,19 +9,17 @@ LOG_FILE="$HOME/install.log"
 
 echo "Rails Installer started"
 
-sudo -s
-
 # Installing Dependencies
 echo -n "Updating package cache..."
-apt-get update >>$LOG_FILE
+sudo apt-get update >>$LOG_FILE
 echo "Done"
 
 echo -n "Installing git..."
-apt-get -y install git >>$LOG_FILE
+sudo apt-get -y install git >>$LOG_FILE
 echo "Done..."
 
 echo -n "Installing Curl..."
-apt-get -y install curl >>$LOG_FILE
+sudo apt-get -y install curl >>$LOG_FILE
 echo "Done"
 
 
@@ -42,12 +40,12 @@ echo "Done.."
 
 # Install Additional Dependencies
 echo -n "Installing additional dependencies (this is a big one)..."
-apt-get -y install build-essential openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+sudo apt-get -y install build-essential openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
 
 # Install nodejs from the PPA
 apt-add-repository -y ppa:chris-lea/node.js
-apt-get update
-apt-get -y install nodejs
+sudo apt-get update
+sudo apt-get -y install nodejs
 
 echo "Done"
 
