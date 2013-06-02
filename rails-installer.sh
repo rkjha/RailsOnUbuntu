@@ -77,4 +77,6 @@ echo "######################################"
 echo "###### Installation Completed ########"
 echo "######################################"
 
+notify-send "Rails Setup Complete!"
+
 echo "if something went wrong then checkout the log file $LOG_FILE"
