@@ -78,7 +78,7 @@ echo "###### Installation Completed ########"
 echo "######################################"
 
 if [ "$(which notify-send)" != "" ] then
-  notify-send "Rails Intall Complete"
+  notify-send "Rails Install Complete"
 fi
 
 echo "if something went wrong then checkout the log file $LOG_FILE"
