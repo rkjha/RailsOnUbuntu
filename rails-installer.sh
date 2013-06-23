@@ -43,7 +43,7 @@ echo -n "Installing additional dependencies (this is a big one)..."
 sudo apt-get -y install build-essential openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
 
 # Install nodejs from the PPA
-sudo apt-add-repository -y ppa:chris-lea/node.js
+apt-add-repository -y ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get -y install nodejs
 
@@ -76,5 +76,9 @@ echo "Done"
 echo "######################################"
 echo "###### Installation Completed ########"
 echo "######################################"
+
+if [ "$(which notify-send)" != "" ] then
+  notify-send "Rails Install Complete"
+fi
 
 echo "if something went wrong then checkout the log file $LOG_FILE"
