@@ -97,17 +97,6 @@ sudo -u postgres psql
 # create database blog_production owner blog;
 # \q
 
-# ruby dependencies
-sudo apt-get install build-essential openssl libreadline6 libreadline6-dev \
-             curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev \
-             sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev libgdbm-dev \
-             ncurses-dev automake libtool bison subversion pkg-config libffi-dev
-             
-# setup ruby
-## Install rbenv using this installer
-## https://github.com/fesplugas/rbenv-installer
-curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
-
 ## update .bashrc according to rbenv installer's instruction
 # install dependencies 
 rbenv bootstrap-ubuntu-12-04
