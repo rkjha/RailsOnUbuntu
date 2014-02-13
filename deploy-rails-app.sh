@@ -3,15 +3,29 @@
 # Author: Ramesh Jha (ramesh@rameshjha.com),(http://blog.sudobits.com)
 # License: MIT 
 
+# change root password
 # setting hostname (optional)
 echo "<YOUR_HOSTNAME>" > /etc/hostname
 hostname -F /etc/hostname
-
 
 # Update System Packages
 apt-get -y update
 apt-get -y upgrade
 
+# Adding a swap (optional, required on Digital Ocean)
+# 1 GB swap
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024K
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+# add it to fstab so it's activated on reboot
+# `vi /etc/fstab` and add following line
+/swapfile       none    swap    sw      0       0
+
+# for security
+sudo chown root:root /swapfile
+sudo chmod 0600 /swapfile
+# use `free -m` command to see if it's working or not
 
 # fix for locale error on Ubuntu (optional)
 apt-get install --reinstall language-pack-en
@@ -63,13 +77,32 @@ mv id_rsa.pub .ssh/authorized_keys
 # Install MySQL Database and its Dependencies
 sudo apt-get -y install mysql-server libmysql++-dev
 
+# for sqlite error
+sudo apt-get install libsqlite3-dev
+
 #create a production database (mysql)
 mysql -u root -p
 create database YOUR_DB_NAME;
 grant all on YOUR_DB_NAME.* to DB_USER@localhost identified by 'your_password_here';
 exit
 
+# alternate : installing postgresql
+sudo apt-get install postgresql-9.1 postgresql-contrib-9.1 redis-server \
+                     libxml2-dev libxslt-dev libpq-dev make g++
 
+# Create your postgres user and database
+sudo -u postgres psql
+# \password
+# create user blog with password 'secret';
+# create database blog_production owner blog;
+# \q
+
+# ruby dependencies
+sudo apt-get install build-essential openssl libreadline6 libreadline6-dev \
+             curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev \
+             sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev libgdbm-dev \
+             ncurses-dev automake libtool bison subversion pkg-config libffi-dev
+             
 # setup ruby
 ## Install rbenv using this installer
 ## https://github.com/fesplugas/rbenv-installer
@@ -79,10 +112,11 @@ curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer
 # install dependencies 
 rbenv bootstrap-ubuntu-12-04
 
-# latest ruby 1.9.3-p385
-rbenv install 1.9.3-p385
+# latest ruby 
+rbenv install 2.0.0-p353
+rbenv install 2.0.0-p353
 rbenv rehash
-rbenv global 1.9.3-p385
+rbenv global 2.0.0-p353
 
 # install bundler and rake
 gem install bundler --no-ri --no-rdoc
