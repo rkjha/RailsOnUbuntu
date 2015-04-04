@@ -77,7 +77,7 @@ echo "######################################"
 echo "###### Installation Completed ########"
 echo "######################################"
 
-if [ "$(which notify-send)" != "" ] then
+if [ "$(which notify-send)" != "" ]; then
   notify-send "Rails Install Complete"
 fi
 
