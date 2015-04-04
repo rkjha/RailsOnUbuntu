@@ -1,8 +1,8 @@
 #!/bin/bash
 # A simple Script for installing Rails on Ubuntu 12.04 LTS / 12.10
 # It will also install the dependencies required as well as the RVM
-# Author: Ramesh Jha (ramesh@rameshjha.com),(http://blog.sudobits.com)
-# License: MIT 
+# Author: Ramesh Jha (ramesh at rameshjha.com),(http://blog.sudobits.com)
+# License: MIT
 
 RUBY_VERSION="1.9.3"
 LOG_FILE="$HOME/install.log"
@@ -31,7 +31,7 @@ curl -Ls get.rvm.io | bash -s stable >>$LOG_FILE
 #if ($? !=0)
 # then
 #  curl -kLs get.rvm.io | bash -s stable
-#fi  
+#fi
 
 echo "Done"
 echo -n "Loading RVM..."

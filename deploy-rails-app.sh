@@ -1,7 +1,10 @@
 # A list of commands - for quickly setting up VPS for deploying Rails Application
 # using nginx, Ubuntu(Latest Stable LTS : 12.04), Unicorn, MySQL and Capistrano
-# Author: Ramesh Jha (ramesh@rameshjha.com),(http://blog.sudobits.com)
-# License: MIT 
+# Author: Ramesh Jha (ramesh[at]rameshjha.com),(http://blog.sudobits.com)
+# License: MIT
+
+### Update! Also check out another deploy-with-passenger script
+## for setting up Nginx/Passenger 5 for Rails/Sinatra on Ubuntu 14.04 LTS
 
 # change root password
 # setting hostname (optional)
@@ -98,10 +101,10 @@ sudo -u postgres psql
 # \q
 
 ## update .bashrc according to rbenv installer's instruction
-# install dependencies 
+# install dependencies
 rbenv bootstrap-ubuntu-12-04
 
-# latest ruby 
+# latest ruby
 rbenv install 2.0.0-p353
 rbenv install 2.0.0-p353
 rbenv rehash
@@ -139,7 +142,7 @@ capify .
 ## add unicorn_init.sh and make it executable
 ## add delayed job scripts (rails generate delayed_job && capistrano recepies)
 
-## commit the latest changes and update database.yml (youmay want to add it to gitignore file and 
+## commit the latest changes and update database.yml (youmay want to add it to gitignore file and
 ## and update it manually on the server, for security reasons, of course)
 
 # Deploying to VPS
@@ -153,6 +156,3 @@ cap deploy:migrate
 cap deploy:start
 
 ## read this (and comment there) if you need any help : http://blog.sudobits.com/2013/01/07/how-to-deploy-rails-application-to-vps/
-
-
-
