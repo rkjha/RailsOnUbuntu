@@ -57,6 +57,8 @@ rbenv rehash
 # install nginx & passenger
 
 ## Adding passenger repository
+## If you're using other than Ubuntu 14.04,
+### check out this : https://www.phusionpassenger.com/documentation/Users%20guide%20Nginx.html#install_add_apt_repo
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 sudo apt-get install apt-transport-https ca-certificates
 sudo sh -c "echo 'deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main' >> /etc/apt/sources.list.d/passenger.list"
